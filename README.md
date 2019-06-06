@@ -1,0 +1,3 @@
+## Blog Post 
+This is a blog post talking about formating in R Markdown and shiny. It includes the basic famating skills in R Markdown, such as making headings, inserting quotes and links, creating bullet lists and etc. It also talks about codes of CSS file that helps to format shiny apps, such as inserting images and changing background colors. 
+[Link to the post](https://jing8888.github.io/Blog/)
