@@ -1,0 +1,101 @@
+---
+title: "Formatting in R Markdown and Shiny App"
+author: "Jing Wang"
+date: "June 5, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+R Markdown is a markup language embedded inside Rstudio. It allows users to combine code and text in the same file. The format of the output is all designed by the user. The document layout is designed in a seperated html or CSS file that needs to be created in a seperate folder names www. 
+
+## Simple formatting with R Markdown
+R Markdown allows users o have three levels of heading, the general big topc with one , section heading and paragraph heading. The way that R Markdown uses to divide paragraphs is thorugh creating a blank line between any two paragraphs. Quote should starts with '>'. R Markdown also allows users to make bullet list, ordered and unordered. Hyperlinks to online resources can be don with the fomula *[text contains the link](link)*.
+
+Below is the code:
+```{r}
+# Heading
+## Sub-heading
+### section title 
+
+cat("Pragraph 1
+
+  - unordered list 
+  - unordered list 
+  - unordered list 
+
+ Pragraph 2
+
+  1. order list
+  2. ordered list
+  3. ordered list
+
+ > Quote
+ 
+   [link to Wikipedia](https://www.wikipedia.org/)
+")
+```
+
+Below is the output:
+# Heading
+## Sub-heading
+### section title 
+
+  Pragraph 1
+  
+  - unordered list 
+  - unordered list 
+  - unordered list 
+
+  Pragraph 2
+  
+  1. order list
+  2. ordered list
+  3. ordered list
+
+  > Quote
+  
+  [link to Wikipedia](https://www.wikipedia.org/)
+
+
+## More formatting with CSS 
+CSS is a file to further modify the format of the RMarkdown file. It is very useful when working with shiny app. 
+
+  - Changing the background and word color 
+```{r}
+cat(
+" body{
+  background-color:black;
+  color: orange;
+  }")
+```
+ 
+  - Changing color of a specific area 
+      In order to change the color of a small area, the user needs to name the targeted area in the shiny file and then apply changes on the named areain CSS file. Numbers of color can be found online searching *color picker*. 
+```{r}
+cat("
+div(class = 'name', content)
+.name{
+  background-color:#600000;
+  color:#e2e53b;
+}
+")
+```
+
+  - Modifying images
+  If all images are necessary to be modify in the same, the general class name *img* can be used. Otherwise, nameing the image first adn follow the instructino above. Using *margin-left* and *margin-right* to control the position of the image and *width* to manipulate the size of images. 
+```{r}
+cat(
+"
+img{
+  display:Red;
+  margin-left:auto;
+  margin-right:auto;
+  width:70%;
+}
+")
+```
+
